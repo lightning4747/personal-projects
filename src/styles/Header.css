@@ -1,0 +1,54 @@
+.header-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  background: transparent;
+}
+
+.logo {
+  font-weight: 800;
+  letter-spacing: -1px;
+  font-size: 1.5rem;
+  color: #1a1a1a;
+}
+
+.logo span {
+  color: #ffb7c5; /* Sakura pink petal color */
+}
+
+.nav-links {
+  display: flex;
+  gap: 3rem;
+}
+
+.nav-item-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.nav-text {
+  font-weight: 500;
+  color: #4a4a4a;
+  transition: color 0.3s ease;
+}
+
+.nav-item-wrapper:hover .nav-text {
+  color: #000;
+}
+
+.petal {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background: #ffb7c5;
+  border-radius: 50% 0 50% 0; /* Creates a petal shape */
+  pointer-events: none;
+}
