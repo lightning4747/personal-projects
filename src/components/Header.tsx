@@ -1,59 +1,35 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import '../styles/Header.css';
+import { motion } from 'framer-motion';
 
-const navItems = ['Work', 'About', 'Contact'];
+const navItems = [
+  { name: 'GitHub', link: 'https://github.com/lightning4747' },
+  { name: 'Email', link: 'mailto:vignesh112847@gmail.com' },
+];
 
 const Header = () => {
   return (
-    <header className="header-container">
+    <header className="fixed top-0 left-0 w-full px-[10%] py-8 flex justify-between items-center z-50 bg-transparent pointer-events-none">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="logo"
+        className="font-extrabold tracking-tighter text-2xl text-neutral-900 pointer-events-auto"
       >
-        Personal projects<span>.</span>
+        Personal projects<span className="text-[#ffb7c5]">.</span>
       </motion.div>
 
-      <nav className="nav-links">
+      <nav className="flex gap-4 pointer-events-auto">
         {navItems.map((item) => (
-          <NavLink key={item} text={item} />
+          <a
+            key={item.name}
+            href={item.link}
+            target={item.name === 'GitHub' ? '_blank' : undefined}
+            rel={item.name === 'GitHub' ? 'noopener noreferrer' : undefined}
+            className="px-4 py-2 rounded-lg font-medium text-neutral-700 hover:text-black transition-all duration-500 ease-in-out hover:shadow-lg bg-white/20 backdrop-blur-sm border border-transparent hover:border-white/40"
+          >
+            {item.name}
+          </a>
         ))}
       </nav>
     </header>
-  );
-};
-
-const NavLink = ({ text }: { text: string }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  const petals = [
-    { x: -18, y: -18, color: 'var(--primary)' },
-    { x: 18, y: -18, color: 'var(--accent)' },
-    { x: 0, y: -25, color: 'var(--chart-2)' },
-  ];
-
-  return (
-    <motion.div
-      className="nav-item-wrapper"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <span className="nav-text">{text}</span>
-
-      <AnimatePresence>
-        {isHovered && petals.map((petal, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 rounded-full blur-[1px]"
-            style={{ backgroundColor: petal.color, left: '50%', top: '0' }}
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1, x: petal.x, y: petal.y }}
-            exit={{ scale: 0, opacity: 0 }}
-          />
-        ))}
-      </AnimatePresence>
-    </motion.div>
   );
 };
 
