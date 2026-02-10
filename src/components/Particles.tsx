@@ -33,11 +33,10 @@ const ParticleBlast = () => {
       size: { value: { min: 1, max: 3 } },
       move: {
         enable: true,
-        // Start from the center "lump"
         direction: "none" as const,
-        outModes: { default: "destroy" as const },
+        outModes: "out" as const,
         random: true,
-        speed: 2, // This will be manipulated by the scroll interaction
+        speed: 0.6,
         straight: false,
       },
     },
