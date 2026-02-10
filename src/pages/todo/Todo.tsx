@@ -22,10 +22,10 @@ function App() {
 
 
     return (
-        <div>
+        <div className='todo-page'>
             <h1>Todo List</h1>
             <InputField todo={todo} setTodo={setTodo} handleadd={handleadd} />
-            <div className='container'>
+            <div className='todo-container'>
                 <TaskList tasks={tasks} setTask={setTask} />
                 <DoneList tasks={tasks} setTask={setTask} />
             </div>
