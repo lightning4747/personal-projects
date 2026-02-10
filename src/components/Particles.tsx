@@ -1,7 +1,7 @@
 import { useEffect, useState, useMemo } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
-import { useScroll, useTransform } from "framer-motion";
+import { useScroll } from "framer-motion";
 
 const ParticleBlast = () => {
   const [init, setInit] = useState(false);
@@ -9,8 +9,7 @@ const ParticleBlast = () => {
 
   // Map scroll progress (0 to 1) to particle speed and spread
   // As you scroll, the "blast" intensity increases
-  const particleSpeed = useTransform(scrollYProgress, [0, 0.2], [0.5, 15]);
-  const particleOpacity = useTransform(scrollYProgress, [0, 0.3, 0.5], [1, 0.8, 0]);
+
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -54,9 +53,9 @@ const ParticleBlast = () => {
   return (
     <div className="particle-container">
       <Particles id="tsparticles" options={options} />
-      
+
       {/* Visual center "Lump" that fades out */}
-      <div 
+      <div
         className="particle-core"
         style={{
           opacity: 1 - scrollYProgress.get() * 2,
