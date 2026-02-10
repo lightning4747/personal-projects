@@ -27,12 +27,11 @@ const Header = () => {
 const NavLink = ({ text }: { text: string }) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  // Floral "petals" positions
-  const petals = [
-    { x: -15, y: -15, delay: 0 },
-    { x: 15, y: -15, delay: 0.1 },
-    { x: 0, y: -20, delay: 0.2 },
-  ];
+const petals = [
+  { x: -18, y: -18, color: 'var(--primary)' },
+  { x: 18, y: -18, color: 'var(--accent)' },
+  { x: 0, y: -25, color: 'var(--chart-2)' },
+];
 
   return (
     <motion.div 
@@ -44,20 +43,14 @@ const NavLink = ({ text }: { text: string }) => {
       
       <AnimatePresence>
         {isHovered && petals.map((petal, i) => (
-          <motion.div
-            key={i}
-            className="petal"
-            initial={{ scale: 0, opacity: 0, x: 0, y: 0 }}
-            animate={{ 
-              scale: 1, 
-              opacity: 1, 
-              x: petal.x, 
-              y: petal.y,
-              rotate: 45 * i 
-            }}
-            exit={{ scale: 0, opacity: 0 }}
-            transition={{ duration: 0.3, delay: petal.delay }}
-          />
+         <motion.div
+  key={i}
+  className="absolute w-2 h-2 rounded-full blur-[1px]"
+  style={{ backgroundColor: petal.color, left: '50%', top: '0' }}
+  initial={{ scale: 0, opacity: 0 }}
+  animate={{ scale: 1, opacity: 1, x: petal.x, y: petal.y }}
+  exit={{ scale: 0, opacity: 0 }}
+/>
         ))}
       </AnimatePresence>
     </motion.div>
