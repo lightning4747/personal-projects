@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import TodoPage from './pages/todo';
+import TodoPage from './pages/todo/Todo';
 
 function App() {
   return (
