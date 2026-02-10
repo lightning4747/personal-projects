@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import '../styles/Projects.css';
 
 const projects = [
-  { id: 1, name: 'Sample', link: '#' },
+  { id: 1, name: 'Todo', link: '/todo' },
 ];
 
 const Projects = () => {
