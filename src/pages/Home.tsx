@@ -37,8 +37,8 @@ function Home() {
                 {/* Solid Project Section - Particles are covered here */}
                 <Projects />
 
-                <section className="h-[50vh] flex items-center justify-center">
-                    <p className="font-mono text-sm">Ende.</p>
+                <section className="h-[4vh] flex items-center justify-center">
+                    <p className="font-mono text-sm">@Ende.</p>
                 </section>
             </div>
         </div>
